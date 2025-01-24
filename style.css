@@ -6,6 +6,7 @@
 
 :root {
 	--root: rgb(21, 19, 18);
+	--white: #fff;
 }
 
 body {
@@ -39,7 +40,8 @@ body {
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-    position: relative;
+	position: relative;
+	z-index: 10;
 
 	a {
 		display: flex;
@@ -51,3 +53,118 @@ body {
 	}
 }
 
+#header .nav .nav-item .dropdown {
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--root);
+	border-radius: 8px;
+	box-shadow: rgba(149, 149, 149, 0.05) 0px 6px 24px 0px,
+		rgba(160, 159, 159, 0.08) 0px 0px 0px 1px;
+	padding: 4px 16px;
+	font: normal 12px "Roboto", serif;
+	color: #fff;
+	display: none;
+	z-index: 1;
+}
+
+#header .nav .nav-item:hover .dropdown {
+	animation: fadeIn 0.3s ease;
+	top: 160%;
+	display: block;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		top: 0;
+	}
+	to {
+		opacity: 1;
+		top: 160%;
+	}
+}
+
+/* main section */
+
+#main {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+#main .card-container {
+	height: 100vh;
+	width: 40%;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	background: var(--root);
+	position: sticky;
+	padding-right: 16px;
+}
+
+#main .card-container .card {
+	width: 55%;
+	height: 80%;
+	background: var(--root);
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 13vh;
+	background: #c9c8c8eb;
+}
+
+#main .card-container .card .card-header {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#main .card-container .card .card-header .image-container {
+	width: 100%;
+	height: 300px;
+	border-radius: 16px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+#main .card-container .card .card-header .name {
+	font: bold 23px "Bebas Neue", serif;
+	cursor: default;
+	color: var(--root);
+	letter-spacing: 4px;
+}
+
+#main .card-container .card .card-footer {
+	width: 75%;
+	font: normal 16px "Roboto", serif;
+	cursor: default;
+	color: var(--root);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	img {
+		height: 20px;
+	}
+}
+
+#main .card-container .card .card-footer .social {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
