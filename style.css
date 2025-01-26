@@ -6,7 +6,22 @@
 
 :root {
 	--background: rgb(22, 22, 22);
-	--text-primary: rgb(246, 246, 246);
+	--background-secondary: rgb(28, 28, 28);
+	--background-third: rgb(44, 44, 44);
+	--heading: #ffffff;
+	--heading-secondary: #6a6b6e;
+	--text: #998f8f;
+
+	/* Fonts */
+	--font-heading: "Bebas Neue", serif;
+	--font-heading-secondary: "Oswald", serif;
+	--font-text: "Roboto", serif;
+
+	/* Sizes */
+	--size-heading: 2.5rem;
+	--size-sub-heading: 1.5rem;
+	--size-text: 1rem;
+	/* --text-primary: rgb(246, 246, 246);
 	--background-light: rgb(246, 246, 246);
 	--text-muted: rgb(133, 133, 133);
 	--background-dark: rgb(28, 28, 28);
@@ -17,20 +32,12 @@
 	--overlay-dark: rgba(22, 22, 22, 0.9);
 	--accent-bright: rgb(182, 255, 27);
 	--accent-light: rgba(182, 255, 27, 0.12);
-	--accent-lighter: rgba(182, 255, 27, 0.16);
-	--font-primary: "Bebas Neue", serif;
-	--font-secondary: "Roboto", serif;
-	--heading-size: 2.5rem;
-	--sub-heading-size: 1.5rem;
-	--text-size: 1rem;
+	--accent-lighter: rgba(182, 255, 27, 0.16); */
 
-	--text-primary: #000000;
-	--text-secondary: #6a6b6e;
+	/* --text-heading-secondary: #b6b4bd33;
+	--heading-primary: #ffffff; */
 
-	--text-heading-secondary: #b6b4bd33;
-	--text-heading-primary: #ffffff;
-
-	/* 998f8f */
+	/* #998f8f */
 	/* #f46c38 */
 	/* #151312 */
 	/* #FFFFFF08 */
@@ -55,7 +62,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 48px;
-	background: var(--background-dark);
+	background: var(--background-secondary);
 	border-radius: 16px;
 	padding: 8px 25px;
 }
@@ -83,13 +90,13 @@ body {
 	top: 0%;
 	left: 50%;
 	transform: translateX(-50%);
-	background: var(--background-darker);
+	background: var(--background-third);
 	border-radius: 8px;
 	/* box-shadow: rgba(149, 149, 149, 0.05) 0px 6px 24px 0px,
 		rgba(160, 159, 159, 0.08) 0px 0px 0px 1px; */
 	padding: 4px 16px;
 	font: normal 12px "Roboto", serif;
-	color: var(--text-primary);
+	color: var(--heading);
 	display: none;
 	z-index: 1;
 }
@@ -100,17 +107,6 @@ body {
 	display: block;
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		top: 0;
-	}
-	to {
-		opacity: 1;
-		top: 160%;
-	}
-}
-
 /* main section */
 
 #main {
@@ -118,25 +114,25 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: start;
-	align-items: center;
 }
 
-#main .card-container {
+#main .side-bar {
 	height: 100vh;
 	width: 39%;
 	display: flex;
 	justify-content: end;
 	align-items: center;
 	background: var(--background);
-	position: sticky;
 	padding-right: 16px;
+	position: sticky;
+	top: 0;
 }
 
-#main .card-container .card {
+#main .side-bar .card {
 	min-width: 318.95px;
 	width: 55%;
 	height: 80%;
-	background: var(--background-light);
+	background: #ffffff;
 	border-radius: 16px;
 	display: flex;
 	flex-direction: column;
@@ -146,18 +142,7 @@ body {
 	animation: fadeInLeftToRight 0.5s ease-in-out;
 }
 
-@keyframes fadeInLeftToRight {
-	from {
-		opacity: 0.5;
-		transform: translateY(-2%);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-#main .card-container .card .card-header {
+#main .side-bar .card .card-header {
 	width: 70%;
 	display: flex;
 	flex-direction: column;
@@ -165,7 +150,7 @@ body {
 	align-items: center;
 }
 
-#main .card-container .card .card-header .image-container {
+#main .side-bar .card .card-header .image-container {
 	width: 100%;
 	height: 300px;
 	border-radius: 16px;
@@ -178,18 +163,18 @@ body {
 	}
 }
 
-#main .card-container .card .card-header .name {
-	font: bold 23px "Bebas Neue", serif;
+#main .side-bar .card .card-header .name {
+	font: bold 23px var(--font-heading);
 	cursor: default;
-	color: var(--background-darker);
+	color: #000000;
 	letter-spacing: 4px;
 }
 
-#main .card-container .card .card-footer {
+#main .side-bar .card .card-footer {
 	width: 75%;
-	font: normal 16px "Roboto", serif;
+	font: normal 16px var(--font-text);
 	cursor: default;
-	color: var(--background-darker);
+	color: #000000;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -200,12 +185,13 @@ body {
 	}
 }
 
-#main .card-container .card .card-footer .social {
+#main .side-bar .card .card-footer .social {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 }
 
+/* page container */
 #main .page-container {
 	min-height: 100vh;
 	width: 61%;
@@ -227,9 +213,9 @@ body {
 }
 
 #main .page-container .intro .intro-header {
-	font: bolder 50px "Bebas Neue", serif;
+	font: bolder 50px var(--font-heading);
 	cursor: default;
-	color: #ffffff;
+	color: var(--heading);
 	letter-spacing: 4px;
 	text-align: center;
 	letter-spacing: 5px;
@@ -237,15 +223,15 @@ body {
 
 	h1:nth-child(2) {
 		margin-top: -5%;
-		color: var(--text-secondary);
+		color: var(--heading-secondary);
 	}
 }
 
 #main .page-container .intro .intro-body {
 	width: 70%;
-	font: normal 20px "Roboto", serif;
+	font: normal 20px var(--font-text);
 	cursor: default;
-	color: #998f8f;
+	color: var(--text);
 }
 
 #main .page-container .achievements {
@@ -256,12 +242,99 @@ body {
 	margin-top: 10%;
 	gap: 4vw;
 	h1 {
-		font: bold 50px "Bebas Neue", serif;
-		color: #ffffff;
+		font: bold 50px var(--font-heading);
+		color: var(--heading);
 	}
 
 	p {
 		font: normal 20px "Oswald", serif;
-		color: #998f8f;
+		color: var(--text);
 	}
+}
+
+#main .page-container .projects {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 7vh;
+}
+
+#main .page-container .projects .projects-header {
+	font: bolder 50px var(--font-heading);
+	color: var(--heading);
+	letter-spacing: 4px;
+	word-spacing: 5px;
+
+	h1:nth-child(2) {
+		margin-top: -5%;
+		color: var(--heading-secondary);
+	}
+}
+
+#main .page-container .projects .project {
+	width: 90%;
+	display: flex;
+	margin: 1vh 0.5vw;
+	position: relative;
+	cursor: pointer;
+
+	a {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		gap: 4vh;
+		/* padding: 0 1vw; */
+	}
+}
+
+#main .page-container .projects .project .image {
+	height: 130px;
+	width: 134px;
+	border-radius: 16px;
+	overflow: hidden;
+	background-color: grey;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+#main .page-container .projects .project .info {
+	h1 {
+		font: bold 30px var(--font-heading-secondary);
+		color: var(--heading);
+	}
+
+	p {
+		font: normal 20px var(--font-text);
+		color: var(--text);
+	}
+}
+
+#main .page-container .projects .project .arrow {
+	height: 20px;
+	width: 20px;
+	transform: rotate(-42deg);
+	position: absolute;
+	top: 15%;
+	right: 2%;
+	transition: all 0.5s ease;
+
+	img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+#main .page-container .projects .project:hover .arrow {
+	top: 7%;
+	right: 0;
+}
+
+
+/* skills */
+#main .page-container .skills{
+	
 }
