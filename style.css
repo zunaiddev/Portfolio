@@ -387,8 +387,9 @@ body {
 		.thought {
 			width: 100%;
 			position: relative;
-			padding: 0% 5% 3% 1%;
+			padding: 3% 5% 6% 1%;
 			cursor: default;
+			border-radius: 5px;
 
 			h1 {
 				font: bold 26px var(--font-heading-secondary);
@@ -403,7 +404,7 @@ body {
 				color: var(--text);
 				position: absolute;
 				left: 1%;
-				bottom: 0;
+				bottom: 3%;
 			}
 
 			.arrow {
@@ -412,7 +413,7 @@ body {
 				transform: rotate(-42deg);
 				position: absolute;
 				top: 15%;
-				right: 2%;
+				right: 4%;
 				transition: all 0.5s ease;
 
 				img {
@@ -423,32 +424,35 @@ body {
 			}
 		}
 
-		.thought:hover .arrow {
-			top: 7%;
-			right: 0;
+		.thought:hover {
+			background: var(--background-secondary);
+			.arrow {
+				top: 10%;
+				right: 3%;
+			}
 		}
+		
 	}
 
 	.contact-form {
 		margin-top: 10%;
 		background: red;
 
-		#form{
+		#form {
 			width: 100%;
 		}
 
-		.name{
+		.name {
 			width: 100%;
 			display: flex;
 			gap: 10px;
 
-			div{
+			div {
 				display: flex;
 				flex-direction: column;
-
 			}
 
-			input{
+			input {
 				height: 36px;
 				width: 300px;
 				padding: 0 10px;
@@ -470,5 +474,28 @@ body {
 	h1:nth-child(2) {
 		margin-top: -3vh;
 		color: var(--heading-secondary);
+	}
+}
+
+#footer {
+	height: 18vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--background);
+	p {
+		font: 400 16px var(--font-text);
+		color: var(--text);
+	}
+
+	span {
+		color: rgb(244, 108, 56);
+		cursor: pointer;
+	}
+
+	span:hover {
+		color: rgb(244, 108, 56);
+		text-decoration: underline;
 	}
 }
