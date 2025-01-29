@@ -11,6 +11,7 @@
 	--heading: #ffffff;
 	--heading-secondary: #6a6b6e;
 	--text: #998f8f;
+	--orange: rgb(244, 108, 56);
 
 	/* Fonts */
 	--font-heading: "Bebas Neue", serif;
@@ -431,31 +432,103 @@ body {
 				right: 3%;
 			}
 		}
-		
 	}
 
 	.contact-form {
 		margin-top: 10%;
-		background: red;
 
 		#form {
+			margin-top: 6%;
 			width: 100%;
-		}
-
-		.name {
-			width: 100%;
+			font: bold 13px var(--font-text);
+			color: var(--text);
 			display: flex;
-			gap: 10px;
+			flex-direction: column;
 
-			div {
+			gap: 4vh;
+
+			.name-email-container {
+				width: 100%;
 				display: flex;
-				flex-direction: column;
+				gap: 4%;
+
+				div {
+					display: flex;
+					flex-direction: column;
+					gap: 5px;
+				}
+
+				input {
+					height: 36px;
+					max-width: 350px;
+					width: 22vw;
+					padding: 0 10px;
+					border-radius: 5px;
+					border: none;
+					outline: none;
+					background: rgb(53 51 52);
+					color: #fff;
+				}
+
+				input::placeholder {
+					color: #fff;
+					opacity: 0.7;
+				}
+
+				input:focus {
+					border-color: var(--orange);
+
+					outline: 1px solid var(--orange);
+				}
 			}
 
-			input {
-				height: 36px;
-				width: 300px;
-				padding: 0 10px;
+			.subject {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				select {
+					height: 36px;
+					border: none;
+					border-radius: 5px;
+					background: rgb(53 51 52);
+					color: #fff;
+					width: 46.5vw;
+				}
+			}
+
+			.message {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				gap: 10px;
+
+				textarea {
+					min-height: 100px;
+					width: 46.5vw;
+					background: rgb(53, 51, 52);
+					display: block; /* Change from flex to block as textarea is not a flex container */
+					resize: vertical;
+					overflow-x: hidden; /* Prevent horizontal scrolling */
+					overflow-y: auto; /* Enable vertical scrolling */
+					white-space: pre-wrap; /* Ensures text wraps properly */
+					color: #fff;
+					border-radius: 5px;
+					border: none;
+					outline: none;
+					padding: 1%;
+				}
+
+				textarea:focus {
+					border-color: var(--orange);
+
+					outline: 1.5px solid var(--orange);
+				}
+
+				textarea::placeholder {
+					color: #fff;
+					opacity: 0.7;
+				}
 			}
 		}
 	}
