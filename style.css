@@ -146,6 +146,7 @@ body {
 		height: 300px;
 		border-radius: 16px;
 		overflow: hidden;
+		box-shadow: var(--orange) 0px 1px 4px, var(--orange) 0px 0px 0px 3px;
 
 		img {
 			width: 100%;
@@ -155,6 +156,7 @@ body {
 	}
 
 	.name {
+		margin-top: 5%;
 		font: bold 23px var(--font-heading);
 		cursor: default;
 		color: #000000;
