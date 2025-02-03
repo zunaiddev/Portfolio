@@ -525,6 +525,25 @@ body {
 	color: #fff;
 	opacity: 0.5;
 }
+
+#form .button {
+	width: 100%;
+}
+
+#form .button button {
+	color: var(--white);
+	min-height: 34px;
+	width: 79%;
+	background: var(--orange);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#form .button button:hover {
+	background: hsla(17, 89%, 60%, 0.931);
+}
+
 .heading {
 	height: fit-content;
 	width: fit-content;
@@ -628,6 +647,10 @@ body {
 		min-width: 80%;
 	}
 
+	#sidebar .image-container {
+		width: 80%;
+	}
+
 	.heading {
 		font-size: 30px;
 	}
@@ -642,7 +665,8 @@ body {
 	}
 
 	#form .subject select,
-	#form .message textarea {
+	#form .message textarea,
+	#form .button button {
 		width: 100%;
 	}
 }
