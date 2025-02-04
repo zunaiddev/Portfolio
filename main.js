@@ -22,4 +22,5 @@ $form.addEventListener("submit", function (e) {
 	window.alert(
 		"I apologize, but this functionality is currently not working. Please contact me via email."
 	);
+	$form.reset();
 });
