@@ -13,19 +13,19 @@
 			<div class="nav">
 				<div class="nav-item home">
 					<a href="#home"><img src="assets/images/home.svg" /></a>
-					<div class="tooltip  hide">
+					<div class="tooltip hide">
 						<p>Home</p>
 					</div>
 				</div>
 				<div class="nav-item skills">
 					<a href="#skills"><img src="assets/images/tools.svg" /></a>
-					<div class="tooltip  hide">
+					<div class="tooltip hide">
 						<p>skills</p>
 					</div>
 				</div>
 				<div class="nav-item projects">
 					<a href="#projects"
-						><img src="assets/images/projects.svg"/>
+						><img src="assets/images/projects.svg" />
 					</a>
 					<div class="tooltip hide">
 						<p>Projects</p>
@@ -34,7 +34,7 @@
 
 				<div class="nav-item thoughts">
 					<a href="#thoughts">
-						<img src="assets/images/thoughts.svg"/>
+						<img src="assets/images/thoughts.svg" />
 					</a>
 					<div class="tooltip hide">
 						<p>Thoughts</p>
@@ -45,7 +45,7 @@
 
 		<main id="main">
 			<section id="sidebar">
-				<div class="card">
+				<div class="card animated-component hidden">
 					<div class="card-header">
 						<div class="image-container">
 							<img src="assets/images/profile.png" />
@@ -62,17 +62,21 @@
 						</div>
 
 						<div class="socials">
-							<a href="#">
-								<img src="assets/images/git.svg"/>
+							<a
+								href="https://github.com/zunaiddev"
+								target="_blank">
+								<img src="assets/images/git.svg" />
 							</a>
-							<a href="#">
-								<img src="assets/images/linkedin.svg"/>
+							<a
+								href="https://www.linkedin.com/in/zunaiddev/"
+								target="_blank">
+								<img src="assets/images/linkedin.svg" />
 							</a>
-							<a href="#">
-								<img src="assets/images/twitter.svg"/>
+							<a href="https://x.com/zunaid6007" target="_blank">
+								<img src="assets/images/twitter.svg" />
 							</a>
-							<a href="#">
-								<img src="assets/images/mail.svg"/>
+							<a href="mailto:zunaiddev@outlook.com">
+								<img src="assets/images/mail.svg" />
 							</a>
 						</div>
 					</div>
@@ -80,7 +84,7 @@
 			</section>
 
 			<section id="content">
-				<div class="intro">
+				<div class="intro animated-component hidden">
 					<div class="heading" id="home">
 						<h1>FULL STACK</h1>
 						<h1>DEVELOPER</h1>
@@ -95,7 +99,7 @@
 					</div>
 				</div>
 
-				<div class="achievements">
+				<div class="achievements animated-component hidden">
 					<div class="achievement">
 						<h1>+12</h1>
 						<p>Years of <br />experience</p>
@@ -110,7 +114,7 @@
 					</div>
 				</div>
 
-				<div class="projects">
+				<div class="projects animated-component hidden">
 					<div class="projects-header heading" id="projects">
 						<h1>Recent</h1>
 						<h1>Projects</h1>
@@ -160,7 +164,7 @@
 					</div>
 				</div>
 
-				<div class="skills">
+				<div class="skills animated-component hidden">
 					<div class="skills-header heading" id="skills">
 						<h1>Core</h1>
 						<h1>Competencies</h1>
@@ -317,7 +321,7 @@
 					</div>
 				</div>
 
-				<div class="thoughts" id="thoughts">
+				<div class="thoughts animated-component hidden" id="thoughts">
 					<div class="thoughts-header heading">
 						<h1>Developer</h1>
 						<h1>Perspective</h1>
@@ -377,7 +381,7 @@
 					</div>
 				</div>
 
-				<div class="contact-form">
+				<div class="contact-form animated-component hidden">
 					<div class="form-header heading">
 						<h1>Let's</h1>
 						<h1>Collaborate</h1>
@@ -393,6 +397,9 @@
 									id="name"
 									placeholder="Your Name"
 									required />
+								<span class="name-error error-message hide"
+									>Field can't be empty</span
+								>
 							</div>
 
 							<div>
@@ -403,6 +410,9 @@
 									id="email"
 									placeholder="Your Email"
 									required />
+								<span class="email-error error-message hide"
+									>Field can't be empty</span
+								>
 							</div>
 						</div>
 
@@ -419,6 +429,9 @@
 								<option value="feedback">Feedback</option>
 								<option value="other">Other</option>
 							</select>
+							<span class="subject-error error-message hide"
+								>Field can't be empty</span
+							>
 						</div>
 
 						<div class="message">
@@ -427,6 +440,9 @@
 								name="message"
 								id="message"
 								placeholder="Message"></textarea>
+							<span class="message-erro error-message hide"
+								>Field can't be empty</span
+							>
 						</div>
 
 						<div class="button">
@@ -440,6 +456,6 @@
 		<footer id="footer">
 			<p>Made By <span>Zunaid</span> | All Copyrights Reserved ©</p>
 		</footer>
-		<script src="main.js"></script>
+		<script type="module" src="main.js"></script>
 	</body>
 </html>
