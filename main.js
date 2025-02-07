@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		},
 		{ threshold: 0.2 }
-	); // 50% of the element must be visible
+	);
 
 	document
 		.querySelectorAll(".animated-component")
