@@ -48,8 +48,9 @@ form.addEventListener("submit", async e => {
         return;
     }
 
+    console.log(response);
+    removeLoader("Thanks");
     form.reset();
-    setLoader("Thanks");
 });
 
 function validateForm() {
@@ -137,7 +138,7 @@ function removeLoader(text) {
 
 async function makeApiRequest(data) {
     try {
-        const response = await fetch('http://localhost:8080/api/data', {
+        const response = await fetch('http://localhost:8080/api/form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
