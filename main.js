@@ -15,63 +15,190 @@ document.addEventListener("DOMContentLoaded", function () {
         .forEach((el) => observer.observe(el));
 });
 
-let form = document.querySelector("#form");
+const form = document.querySelector("#form");
+const name = form.querySelector("#name");
+const email = form.querySelector("#email");
+const subject = form.querySelector("#subject");
+const message = form.querySelector("#message");
 
-const validationMessages = {
-    name: {
-        valueMissing: 'Please enter your name.',
-        tooShort: 'name must be at least 3 characters.',
-    },
-    email: {
-        valueMissing: 'Please enter an email address.',
-        typeMismatch: 'Please enter a valid email.',
-    },
-    message: {
-        valueMissing: 'Please enter a message.',
-        tooShort: 'message must be at least 10 characters.',
-    }
-}
-
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", async e => {
     e.preventDefault();
-    console.log(validateName())
-    validateEmail();
+    name.addEventListener('input', validateName);
+    email.addEventListener('input', validateEmail);
+    subject.addEventListener('input', validateSubject);
+    message.addEventListener('input', validateMessage);
+    name.addEventListener('click', e => removeLoader('submit'));
+    email.addEventListener('click', e => removeLoader('submit'));
+    subject.addEventListener('click', e => removeLoader('submit'));
+    message.addEventListener('click', e => removeLoader('submit'));
+
+    if (!validateForm()) {
+        return;
+    }
+
+    setLoader();
+    let response = await makeApiRequest(getData());
+    if (response === null) {
+        removeLoader("Submit");
+        alert("I apologize an error occurred at server side. please try again or mail me.");
+        return;
+    }
+
     form.reset();
+    setLoader("Thanks");
 });
 
-// function validateForm() {
-//
-//     let emailValue = email.value.trim();
-//     let messageValue = message.value.trim();
-//
-//     return true;
-// }
+function validateForm() {
+    let isNameValid = validateName();
+    let isEmailValid = validateEmail();
+    let isMessageValid = validateMessage();
+    let isSubjectValid = validateSubject();
+
+    return isNameValid && isEmailValid && isMessageValid && isSubjectValid;
+}
+
+function setError(input, errorMessage) {
+    let error = form.querySelector(`#${input.name}Error`);
+    error.innerText = errorMessage;
+    input.style.border = "1px solid red";
+    error.classList.remove("error");
+}
+
+function removeError(input) {
+    let error = form.querySelector(`#${input.name}Error`);
+    error.innerText = '';
+    input.style.border = "none";
+
+    error.classList.add("error");
+}
 
 function validateName() {
-    console.log("validateName()");
-    let nameValue = document.getElementById("name").value.trim();
-    let nameError = document.querySelector("#nameError");
-
-    if (nameValue !== "" || nameValue.length <= 2) {
-        nameError.innerText = "Please enter a valid name.";
-        nameError.style.display = "block";
+    if (name.value.trim() === '' || name.value.length < 3) {
+        setError(name, "Please enter a valid name");
         return false;
     }
 
-    nameError.style.display = "none";
+    removeError(name);
     return true;
 }
 
 function validateEmail() {
-    let email = document.getElementById("email");
-    let emailError = document.querySelector("#emailError");
-    if (!email.validity.valid) {
-        emailError.style.display = "block";
-        email.setCustomValidity("Invalid email format!");
+    let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (email.value.trim() === '' || !regex.test(email.value.trim())) {
+        setError(email, "Please enter a valid email");
         return false;
-    } else {
-        emailError.style.display = "none";
-        email.setCustomValidity("");
-        return true;
     }
+
+    removeError(email);
+    return true;
+}
+
+function validateMessage() {
+    let messageValue = message.value.trim();
+    if (messageValue === '') {
+        setError(message, "Please enter a valid message");
+        return false;
+    } else if (messageValue.length < 10 || messageValue.length > 150) {
+        setError(message, "message length must be between 10 and 150 characters.");
+        return false;
+    }
+
+    removeError(message);
+    return true;
+}
+
+function validateSubject() {
+    let subjectValue = subject.value.trim();
+    if (subjectValue === '') {
+        setError(subject, "Please select a subject");
+        return false;
+    }
+
+    removeError(subject);
+    return true;
+}
+
+function setLoader() {
+    const button = document.getElementById("button");
+    button.innerText = '';
+    button.innerHTML = '<span class="loader"></span>';
+}
+
+function removeLoader(text) {
+    const button = document.getElementById("button");
+    button.innerHTML = '';
+    button.innerText = text;
+}
+
+
+async function makeApiRequest(data) {
+    try {
+        const response = await fetch('http://localhost:8080/api/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            return null;
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+function getData() {
+    return {
+        name: capitalizeWords(name.value),
+        email: email.value.trim().toLowerCase(),
+        subject: subject.value,
+        message: capitalize(message.value),
+    };
+}
+
+function capitalize(str) {
+    str = str.trim().toLowerCase();
+    let finalStr = '';
+    for (let i = 0; i < str.length; i++) {
+        if (i === 0) {
+            finalStr += str[i].toUpperCase();
+            continue;
+        }
+
+        if (str[i - 1] === ' ' && str[i] === ' ') {
+            continue;
+        }
+
+        finalStr += str[i];
+    }
+    return finalStr;
+}
+
+function capitalizeWords(str) {
+    str = str.trim();
+    let finalStr = '';
+    for (let i = 0; i < str.length; i++) {
+        if (i === 0) {
+            finalStr += str[i].toUpperCase();
+            continue;
+        }
+
+        if (str[i - 1] === ' ' && str[i] === ' ') {
+            continue;
+        }
+
+        if (str[i - 1] === ' ') {
+            finalStr += str[i].toUpperCase();
+            continue;
+        }
+
+        finalStr += str[i].toLowerCase();
+    }
+
+    return finalStr;
 }
