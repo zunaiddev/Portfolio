@@ -23,14 +23,18 @@ const message = form.querySelector("#message");
 
 form.addEventListener("submit", async e => {
     e.preventDefault();
-    name.addEventListener('input', validateName);
-    email.addEventListener('input', validateEmail);
-    subject.addEventListener('input', validateSubject);
-    message.addEventListener('input', validateMessage);
-    name.addEventListener('click', e => removeLoader('submit'));
-    email.addEventListener('click', e => removeLoader('submit'));
-    subject.addEventListener('click', e => removeLoader('submit'));
-    message.addEventListener('click', e => removeLoader('submit'));
+    const inputFields = [name, email, subject, message];
+
+    inputFields.forEach(input => {
+        input.addEventListener('input', () => {
+            if (input === name) validateName();
+            if (input === email) validateEmail();
+            if (input === subject) validateSubject();
+            if (input === message) validateMessage();
+        });
+
+        input.addEventListener('click', () => removeLoader('submit'));
+    });
 
     if (!validateForm()) {
         return;
