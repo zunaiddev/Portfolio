@@ -137,8 +137,9 @@ function removeLoader(text) {
 
 
 async function makeApiRequest(data) {
+    let URL = 'https://frantic-karee-api-v9-e95c5f4b.koyeb.app/api/form';
     try {
-        const response = await fetch('http://localhost:8080/api/form', {
+        const response = await fetch(URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
