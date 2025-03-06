@@ -48,7 +48,6 @@ form.addEventListener("submit", async e => {
         return;
     }
 
-    console.log(response);
     removeLoader("Thanks");
     form.reset();
 });
@@ -103,8 +102,8 @@ function validateMessage() {
     if (messageValue === '') {
         setError(message, "Please enter a valid message");
         return false;
-    } else if (messageValue.length < 10 || messageValue.length > 150) {
-        setError(message, "message length must be between 10 and 150 characters.");
+    } else if (messageValue.length < 15 || messageValue.length > 200) {
+        setError(message, "message length must be between 15 and 200 characters.");
         return false;
     }
 
