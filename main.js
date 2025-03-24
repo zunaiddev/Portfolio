@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document
         .querySelectorAll(".animated-component")
         .forEach((el) => observer.observe(el));
+    
+    setYear();
 });
 
 const form = document.querySelector("#form");
@@ -208,4 +210,8 @@ function capitalizeWords(str) {
     }
 
     return finalStr;
+}
+
+function setYear() {
+    document.querySelector(".year").innerText = new Date().getFullYear();
 }

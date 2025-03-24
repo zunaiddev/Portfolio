@@ -587,12 +587,12 @@ body {
         color: var(--text);
     }
 
-    span {
+    span:first-child {
         color: rgb(244, 108, 56);
         cursor: pointer;
     }
 
-    span:hover {
+    span:first-child:hover {
         color: rgb(244, 108, 56);
         text-decoration: underline;
     }
