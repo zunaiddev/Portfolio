@@ -137,9 +137,7 @@ function removeLoader(text) {
 
 async function makeApiRequest(data) {
     const KEY = 'rfkPR3MzyDZO_AxJCG9tizzo_SFW_gJzZXYG2cwMIF8';
-    let URL = 'https://frantic-karee-api-v9-e95c5f4b.koyeb.app/api/public/submit';
-    // let KEY = "erJUr1fRDAs_82HakiZPjR07iRxcI8cxFAudblePE8Y";
-    // let URL = "http://localhost:8080/api/public/submit";
+    let URL = 'https://intact-roanna-api-v9-6a640f42.koyeb.app/api/public/submit';
     try {
         const response = await fetch(URL, {
             method: 'POST',
