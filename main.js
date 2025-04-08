@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver(
         (entries) => {
@@ -138,7 +139,7 @@ function removeLoader(text) {
 
 
 async function makeApiRequest(data) {
-    const KEY = 'rfkPR3MzyDZO_AxJCG9tizzo_SFW_gJzZXYG2cwMIF8';
+    const KEY = 'wGdt8IZTU3FiXw4uMHCzMruBXYDy3JHDQ';
     let URL = 'https://intact-roanna-api-v9-6a640f42.koyeb.app/api/public/submit';
     try {
         const response = await fetch(URL, {
