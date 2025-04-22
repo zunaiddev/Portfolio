@@ -269,7 +269,6 @@ body {
 
 #content .projects .project {
     width: 98%;
-    display: flex;
     margin: 2vh 0.5vw;
     position: relative;
 }
