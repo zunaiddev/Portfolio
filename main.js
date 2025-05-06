@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver(
         (entries) => {

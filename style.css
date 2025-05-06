@@ -628,6 +628,20 @@ body {
     margin: 5px 0;
 }
 
+/*Download Resume Btn*/
+#download-btn {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: var(--orange);
+    color: var(--white);
+    font-size: 15px;
+    cursor: pointer;
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);
