@@ -138,7 +138,7 @@ function removeLoader(text) {
 
 
 async function makeApiRequest(data) {
-    const KEY = 'FJwx8RmHlVnt7c9XGrBKNYUQqwqZbBfA';
+    const KEY = 'uogjsL0lB0106hfKmiK7ZoGWaktSbCeXA';
     let URL = 'https://intact-roanna-api-v9-6a640f42.koyeb.app/api/public/submit';
     try {
         const response = await fetch(URL, {
