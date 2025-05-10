@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver(
-        (entries) => {
+        entries => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("show");
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document
         .querySelectorAll(".animated-component")
-        .forEach((el) => observer.observe(el));
+        .forEach(el => observer.observe(el));
     
     setYear();
 });
@@ -135,7 +135,6 @@ function removeLoader(text) {
     button.innerHTML = '';
     button.innerText = text;
 }
-
 
 async function makeApiRequest(data) {
     const KEY = 'x9zvWBnuvT7jSuNFYBaMcKKljzQADGjAQ';
