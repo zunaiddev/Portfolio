@@ -22,6 +22,18 @@ const name = form.querySelector("#name");
 const email = form.querySelector("#email");
 const subject = form.querySelector("#subject");
 const message = form.querySelector("#message");
+const wordCount = form.querySelector(".word-count");
+
+message.addEventListener("input", function (e) {
+    let text = e.target.value.trim();
+
+    if (text.length > 150) {
+        e.target.value = text.slice(0, 150);
+    }
+
+    wordCount.innerText = `${text.length}/150`;
+});
+
 
 form.addEventListener("submit", async e => {
     e.preventDefault();
@@ -34,8 +46,6 @@ form.addEventListener("submit", async e => {
             if (input === subject) validateSubject();
             if (input === message) validateMessage();
         });
-
-        input.addEventListener('click', () => removeLoader('submit'));
     });
 
     if (!validateForm()) {
@@ -43,7 +53,7 @@ form.addEventListener("submit", async e => {
     }
 
     setLoader();
-    let response = await makeApiRequest(getData());
+    let response = await submitData(getData());
     if (response === null) {
         removeLoader("Submit");
         alert("I apologize an error occurred at server side. please try again or mail me.");
@@ -51,6 +61,7 @@ form.addEventListener("submit", async e => {
     }
 
     removeLoader("Thanks");
+    setTimeout(() => removeLoader("Submit"), 2000);
     form.reset();
 });
 
@@ -136,7 +147,7 @@ function removeLoader(text) {
     button.innerText = text;
 }
 
-async function makeApiRequest(data) {
+async function submitData(data) {
     const KEY = 'ab4lhkcVeevV896r9ixCQeaf2SmMuRgFA';
     const URL = 'https://intact-roanna-api-v9-6a640f42.koyeb.app/api/public/submit';
 
@@ -145,7 +156,7 @@ async function makeApiRequest(data) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-API-Key': KEY,
+                'X-API-Key': "fs_test_api_key",
             },
             body: JSON.stringify(data),
         });
@@ -153,6 +164,7 @@ async function makeApiRequest(data) {
         if (!response.ok) {
             return null;
         }
+
 
         return await response.json();
     } catch (error) {

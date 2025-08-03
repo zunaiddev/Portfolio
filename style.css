@@ -499,6 +499,7 @@ body {
     background: #353334;
     color: var(--white);
     outline: none;
+    cursor: pointer;
 }
 
 #form .message {
@@ -510,9 +511,10 @@ body {
 
 #form .message textarea {
     min-height: 120px;
-    width: 79%;
+    max-height: 200px;
+    width: 100%;
     background: rgb(53, 51, 52);
-    resize: vertical;
+    resize: none;
     overflow-x: hidden;
     overflow-y: auto;
     white-space: pre-wrap;
@@ -531,6 +533,19 @@ body {
 #form .message textarea::placeholder {
     color: #fff;
     opacity: 0.5;
+}
+
+#form .message-container {
+    width: 79%;
+    position: relative;
+}
+
+#form .word-count {
+    user-select: none;
+    font-family: var(--roboto), serif;
+    position: absolute;
+    right: 0.5%;
+    bottom: 4%;
 }
 
 #form .button {
