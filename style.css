@@ -679,17 +679,17 @@ body {
 }
 
 .toaster .toast {
-    height: 44px;
+    max-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.3rem;
+    text-align: center;
     color: var(--white);
     background: #424242;
     font: normal 16px var(--roboto);
-    padding: 0 15px;
+    padding: 20px 15px;
     border-radius: 10px;
-    user-select: none;
     transform: translateY(-130%);
     transition: 900ms ease-out transform;
 }

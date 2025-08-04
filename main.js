@@ -31,7 +31,7 @@ message.addEventListener("input", function (e) {
 });
 
 form.addEventListener("submit", async e => {
-    e.preventDefault();
+    e.preventDefault(); // block the submission
 
     name.addEventListener("input", validateName);
     email.addEventListener("input", validateEmail);
@@ -41,8 +41,6 @@ form.addEventListener("submit", async e => {
     if (!validateForm()) {
         return;
     }
-
-    setLoader();
 
     if (localStorage.getItem("notAllowed") === "true") {
         showToast("Not Allowed!", "warning");
@@ -63,10 +61,12 @@ form.addEventListener("submit", async e => {
         return;
     }
 
+    setLoader();
+
     let response = await submitData(getData());
     if (response === null) {
         removeLoader("Submit");
-        showToast("I apologize an error occurred at server side. please try again or mail me.", "error", 4000);
+        showToast("I apologize an error occurred at server side. please try again or mail me.", "error", 5000);
         return;
     }
 
