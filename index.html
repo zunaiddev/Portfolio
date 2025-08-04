@@ -411,7 +411,8 @@
                                 id="email"
                                 name="email"
                                 placeholder="Your Email"
-                                type="text"/>
+                                type="text"
+                        />
                         <span class="error-message error" id="emailError">
 
                         </span>
@@ -440,7 +441,9 @@
                         <textarea
                                 id="message"
                                 name="message"
-                                placeholder="Message"></textarea>
+                                maxlength="150"
+                                placeholder="Message"
+                        ></textarea>
                         <small class="word-count">0/150</small>
                     </div>
                     <span class="error-message error" id="messageError">
@@ -449,7 +452,9 @@
                 </div>
 
                 <div class="button">
-                    <button id="button" type="submit">Submit</button>
+                    <button id="button" type="submit">
+                        Submit
+                    </button>
                 </div>
             </form>
         </div>

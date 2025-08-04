@@ -17,52 +17,76 @@ document.addEventListener("DOMContentLoaded", function () {
     setYear();
 });
 
+const body = document.querySelector("body");
 const form = document.querySelector("#form");
 const name = form.querySelector("#name");
 const email = form.querySelector("#email");
 const subject = form.querySelector("#subject");
 const message = form.querySelector("#message");
 const wordCount = form.querySelector(".word-count");
+const button = document.getElementById("button");
 
 message.addEventListener("input", function (e) {
-    let text = e.target.value.trim();
-
-    if (text.length > 150) {
-        e.target.value = text.slice(0, 150);
-    }
-
-    wordCount.innerText = `${text.length}/150`;
+    wordCount.innerText = e.target.value.length + "/150";
 });
-
 
 form.addEventListener("submit", async e => {
     e.preventDefault();
-    const inputFields = [name, email, subject, message];
 
-    inputFields.forEach(input => {
-        input.addEventListener('input', () => {
-            if (input === name) validateName();
-            if (input === email) validateEmail();
-            if (input === subject) validateSubject();
-            if (input === message) validateMessage();
-        });
-    });
+    name.addEventListener("input", validateName);
+    email.addEventListener("input", validateEmail);
+    subject.addEventListener("input", validateSubject);
+    message.addEventListener("input", validateMessage);
 
     if (!validateForm()) {
         return;
     }
 
     setLoader();
-    let response = await submitData(getData());
-    if (response === null) {
-        removeLoader("Submit");
-        alert("I apologize an error occurred at server side. please try again or mail me.");
+
+    if (localStorage.getItem("notAllowed") === "true") {
+        showToast("Not Allowed!", "warning");
+        console.log("Not Allowed!");
         return;
     }
 
+    let requests = JSON.parse(localStorage.getItem("requests"));
+
+    if (requests && requests.count >= 10 && requests.allowedAt > Date.now()) {
+        localStorage.setItem("notAllowed", "true");
+        setTimeout(function () {
+            localStorage.removeItem("requests");
+            localStorage.setItem("notAllowed", "false");
+
+            showToast("You can send your query now.");
+        }, 300000);
+        return;
+    }
+
+    let response = await submitData(getData());
+    if (response === null) {
+        removeLoader("Submit");
+        showToast("I apologize an error occurred at server side. please try again or mail me.", "error", 4000);
+        return;
+    }
+
+    localStorage.setItem("requests", JSON.stringify({
+        count: requests ? requests.count + 1 : 1,
+        allowedAt: new Date().setMinutes(new Date().getMinutes() + 5),
+    }));
+
     removeLoader("Thanks");
-    setTimeout(() => removeLoader("Submit"), 2000);
+    button.disabled = true;
+    setTimeout(() => {
+        removeLoader("Submit");
+        button.disabled = false;
+    }, 2000);
     form.reset();
+
+    name.removeEventListener("input", validateName);
+    email.removeEventListener("input", validateEmail);
+    subject.removeEventListener("input", validateSubject);
+    message.removeEventListener("input", validateMessage);
 });
 
 function validateForm() {
@@ -90,7 +114,9 @@ function removeError(input) {
 }
 
 function validateName() {
-    if (name.value.trim() === '' || name.value.length < 3) {
+    let value = name.value.trim();
+
+    if (value === '' || value < 3 || !value.match(/^[a-zA-Z\s'-]+$/)) {
         setError(name, "Please enter a valid name");
         return false;
     }
@@ -136,15 +162,15 @@ function validateSubject() {
 }
 
 function setLoader() {
-    const button = document.getElementById("button");
     button.innerText = '';
-    button.innerHTML = '<span class="loader"></span>';
+    button.innerHTML = '<div class="loader"></div>';
+    button.disabled = true;
 }
 
 function removeLoader(text) {
-    const button = document.getElementById("button");
     button.innerHTML = '';
     button.innerText = text;
+    button.disabled = false;
 }
 
 async function submitData(data) {
@@ -156,7 +182,7 @@ async function submitData(data) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-API-Key': "fs_test_api_key",
+                'X-API-Key': KEY,
             },
             body: JSON.stringify(data),
         });
@@ -226,4 +252,25 @@ function capitalizeWords(str) {
 
 function setYear() {
     document.querySelector(".year").innerText = new Date().getFullYear();
+}
+
+function showToast(text = "This is a toast", icon = "info", duration = 3000) {
+    let toaster = document.createElement("div");
+    let toast = document.createElement("div");
+
+    toaster.setAttribute("class", "toaster");
+    toast.setAttribute("class", "toast");
+
+    toast.innerHTML = `<img src="/assets/images/${icon}Icon.svg" alt="Toast icon"/><span>${text}</span>`;
+
+    toaster.appendChild(toast);
+    body.appendChild(toaster);
+
+    setTimeout(() => toast.style.transform = "translateY(0%)", 100);
+
+    setTimeout(async function () {
+        toast.style.transform = "translateY(-130%)";
+        await new Promise(resolve => setTimeout(resolve, 900));
+        body.removeChild(toaster);
+    }, duration);
 }

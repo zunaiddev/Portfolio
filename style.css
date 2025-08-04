@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    position: relative;
+}
+
 a {
     all: unset;
     cursor: pointer;
@@ -566,6 +570,11 @@ body {
     background: hsla(17, 89%, 60%, 0.931);
 }
 
+#form .button button:disabled {
+    cursor: not-allowed;
+    background: hsla(17, 89%, 60%, 0.831);
+}
+
 #form .error-message {
     font-weight: normal;
     font-size: 12px;
@@ -632,15 +641,19 @@ body {
 }
 
 .loader {
-    width: 21px;
-    height: 21px;
-    border: 3px solid #FFF;
-    border-bottom-color: transparent;
-    border-radius: 50%;
     display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    margin: 5px 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid white;
+    border-right-color: var(--orange);
+    animation: l2 1s infinite linear;
+}
+
+@keyframes l2 {
+    to {
+        transform: rotate(1turn)
+    }
 }
 
 /*Download Resume Btn*/
@@ -655,6 +668,30 @@ body {
     position: fixed;
     right: 10px;
     bottom: 15px;
+}
+
+.toaster {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.toaster .toast {
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--white);
+    background: #424242;
+    font: normal 16px var(--roboto);
+    padding: 0 15px;
+    border-radius: 10px;
+    user-select: none;
+    transform: translateY(-130%);
+    transition: 900ms ease-out transform;
 }
 
 @keyframes rotation {
