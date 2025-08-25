@@ -506,6 +506,11 @@ body {
     cursor: pointer;
 }
 
+#form .subject select:focus {
+    border-color: var(--orange);
+    outline: 1px solid var(--orange);
+}
+
 #form .message {
     display: flex;
     flex-direction: column;
@@ -531,7 +536,7 @@ body {
 
 #form .message textarea:focus {
     border-color: var(--orange);
-    outline: 2px solid var(--orange);
+    outline: 1px solid var(--orange);
 }
 
 #form .message textarea::placeholder {
@@ -751,8 +756,11 @@ body {
     }
 
     #form .subject select,
-    #form .message textarea,
     #form .button button {
+        width: 100%;
+    }
+
+    #form .message-container {
         width: 100%;
     }
 }

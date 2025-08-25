@@ -31,7 +31,7 @@ message.addEventListener("input", function (e) {
 });
 
 form.addEventListener("submit", async e => {
-    e.preventDefault(); // block the submission
+    e.preventDefault();
 
     name.addEventListener("input", validateName);
     email.addEventListener("input", validateEmail);
@@ -43,7 +43,7 @@ form.addEventListener("submit", async e => {
     }
 
     if (localStorage.getItem("notAllowed") === "true") {
-        showToast("Not Allowed!", "warning");
+        showToast("You have exceed maximum number of Limit try again later", "warning");
         console.log("Not Allowed!");
         return;
     }
@@ -64,6 +64,7 @@ form.addEventListener("submit", async e => {
     setLoader();
 
     let response = await submitData(getData());
+
     if (response === null) {
         removeLoader("Submit");
         showToast("I apologize an error occurred at server side. please try again or mail me.", "error", 5000);
