@@ -27,7 +27,7 @@ const wordCount = form.querySelector(".word-count");
 const button = document.getElementById("button");
 
 message.addEventListener("input", function (e) {
-    wordCount.innerText = e.target.value.length + "/150";
+    wordCount.innerText = e.target.value.length + " | 150";
 });
 
 form.addEventListener("submit", async e => {
