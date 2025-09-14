@@ -1,0 +1,26 @@
+[
+  {
+    "name": "FormSync",
+    "desc": "A full-stack form management platform for user registration, API key generation, and form submissions, featuring a secure dashboard for tracking and management with JWT authentication.",
+    "link": "#",
+    "src": "assets/images/form-sync.png"
+  },
+  {
+    "name": "Login & Register System (Desktop App)",
+    "desc": "A Java (AWT/Swing) desktop application for user registration and login, featuring a graphical interface and secure user authentication with a MySQL database via JDBC.",
+    "link": "#",
+    "src": "assets/images/login-app.png"
+  },
+  {
+    "name": "Library Management API",
+    "desc": "A RESTful backend system built with Spring Boot to manage library books, users, and borrowing records, implementing full CRUD operations and relational data mappings.",
+    "link": "#",
+    "src": "assets/images/library-api.png"
+  },
+  {
+    "name": "Tic Tac Toe Game",
+    "desc": "An interactive, browser-based two-player Tic Tac Toe game featuring dynamic UI updates, game logic, and win/draw detection, built with vanilla JavaScript, HTML, and CSS.",
+    "link": "#",
+    "src": "assets/images/tic-tac-toe.png"
+  }
+]

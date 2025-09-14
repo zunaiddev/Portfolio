@@ -656,10 +656,8 @@ body {
     }
 }
 
-/*Download Resume Btn*/
 #download-btn {
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     background-color: var(--orange);
     color: var(--white);
@@ -668,6 +666,44 @@ body {
     position: fixed;
     right: 10px;
     bottom: 15px;
+    width: 34px;
+    height: 30px;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+#download-btn a {
+    display: block;
+}
+
+#download-btn a div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--orange);
+}
+
+#download-btn:hover {
+    width: 100px;
+}
+
+#download-btn span {
+    display: inline-block;
+    transform: translateX(120%);
+    padding-right: 10px;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+#download-btn:hover a span {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .toaster {
