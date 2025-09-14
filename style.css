@@ -276,10 +276,10 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 4vh;
+    gap: 2vw;
 }
 
-#content .projects .image {
+#content .projects .project .image {
     height: 130px;
     width: 134px;
     border-radius: 16px;
@@ -290,6 +290,10 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+#content .projects .project .info {
+    width: 75%;
 }
 
 #content .projects .info h1 {
