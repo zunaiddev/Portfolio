@@ -1,21 +1,47 @@
-const projects = document.querySelector('.projects-body');
+const container = document.querySelector('.projects-body');
+const loadMore = document.querySelector('.load-more button');
+let projects = [];
+let isShowAll = false;
 
-fetch("assets/projects.json").then((response) => response.json()).then((data) => {
-    console.log(data);
-});
+(async () => {
+    let data = await getData();
+    loadMore.innerText = `+${data.length - 3} more`;
+    projects = data.map((item) => getProjectUi(item));
+    projects.slice(0, 3).forEach((item) => container.appendChild(item));
+})();
 
 function getProjectUi({name, desc, link, src}) {
-    desc = "rhgffgufv"
     const div = document.createElement("div");
     div.classList.add("project");
 
     div.innerHTML = `<a href="${link}" target="_blank">
                         <div class="image">
-                            <img alt="${name}" loading="lazy" src="${src}"/>
+                            <img src="${src}" alt="${name}" />
                         </div>
                         <div class="info"><h1>${name}</h1><p>${desc}</p></div>
                         <div class="arrow"><img alt="arrow" loading="lazy" src="assets/images/arrow.svg"/></div>
                     </a>`;
 
     return div;
+}
+
+async function getData() {
+    return await (await fetch("assets/other/projects.json")).json();
+}
+
+loadMore.addEventListener("click", function () {
+    if (isShowAll) hide();
+    else showAll();
+});
+
+function showAll() {
+    projects.slice(3).forEach((item) => container.appendChild(item));
+    loadMore.innerText = `less`;
+    isShowAll = true;
+}
+
+function hide() {
+    projects.slice(3).forEach((item) => container.removeChild(item));
+    loadMore.innerText = `+${projects.length - 3} more`;
+    isShowAll = false;
 }
