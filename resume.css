@@ -50,7 +50,6 @@ header > :last-child button {
 }
 
 .resume-container {
-    background: red;
     display: block;
     unicode-bidi: isolate;
 }
