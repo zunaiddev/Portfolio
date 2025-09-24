@@ -49,10 +49,16 @@ header > :last-child button {
     width: 100%;
 }
 
+.resume-container {
+    background: red;
+    display: block;
+    unicode-bidi: isolate;
+}
+
 .resume {
     margin: 4rem auto 5rem;
     background: #161718;
-    width: 70rem;
+    width: 63rem;
     display: flex;
 }
 
