@@ -4,7 +4,7 @@ let projects = [];
 let isShowAll = false;
 
 (async () => {
-    let data = await getData();
+    let data = await getProjectsData();
     loadMore.innerText = `+${data.length - 3} more`;
     projects = data.map((item) => getProjectUi(item));
     projects.slice(0, 3).forEach((item) => container.appendChild(item));
@@ -25,7 +25,7 @@ function getProjectUi({name, desc, link, src}) {
     return div;
 }
 
-async function getData() {
+async function getProjectsData() {
     return await (await fetch("assets/other/projects.json")).json();
 }
 

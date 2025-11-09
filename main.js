@@ -1,3 +1,6 @@
+const KEY = "P5ngK3FkXAazZUCXiLHJtmVUCg0htURw";
+const URL = "https://formsync.koyeb.app/api/public/submit";
+
 document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver(
         entries => {
@@ -25,6 +28,11 @@ const subject = form.querySelector("#subject");
 const message = form.querySelector("#message");
 const wordCount = form.querySelector(".word-count");
 const button = document.getElementById("button");
+
+name.value = "John Doe";
+email.value = "john@gmail.com";
+subject.value = "Feedback";
+message.value = "This is a testing message";
 
 message.addEventListener("input", function (e) {
     wordCount.innerText = e.target.value.length + " | 150";
@@ -63,6 +71,12 @@ form.addEventListener("submit", async e => {
 
     setLoader();
 
+    // let data = {
+    //     name: name.value,
+    //     email: email.value,
+    //     subject: subject.value,
+    //     message: message.value
+    // }
     let response = await submitData(getData());
 
     if (response === null) {
@@ -175,9 +189,6 @@ function removeLoader(text) {
 }
 
 async function submitData(data) {
-    const KEY = 'ab4lhkcVeevV896r9ixCQeaf2SmMuRgFA';
-    const URL = 'https://intact-roanna-api-v9-6a640f42.koyeb.app/api/public/submit';
-
     try {
         const response = await fetch(URL, {
             method: 'POST',
@@ -195,7 +206,6 @@ async function submitData(data) {
 
         return await response.json();
     } catch (error) {
-        console.log(error);
         return null;
     }
 }
