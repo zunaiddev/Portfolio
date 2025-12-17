@@ -66,12 +66,6 @@ form.addEventListener("submit", async e => {
 
     setLoader();
 
-    // let data = {
-    //     name: name.value,
-    //     email: email.value,
-    //     subject: subject.value,
-    //     message: message.value
-    // }
     let response = await submitData(getData());
 
     if (response === null) {
