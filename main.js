@@ -29,11 +29,6 @@ const message = form.querySelector("#message");
 const wordCount = form.querySelector(".word-count");
 const button = document.getElementById("button");
 
-name.value = "John Doe";
-email.value = "john@gmail.com";
-subject.value = "Feedback";
-message.value = "This is a testing message";
-
 message.addEventListener("input", function (e) {
     wordCount.innerText = e.target.value.length + " | 150";
 });
