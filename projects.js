@@ -5,7 +5,7 @@ let isShowAll = false;
 
 (async () => {
     let data = await getProjectsData();
-    loadMore.innerText = `+${data.length - 3} more`;
+    loadMore.innerText = `more`;
     projects = data.map((item) => getProjectUi(item));
     projects.slice(0, 3).forEach((item) => container.appendChild(item));
 })();
@@ -45,3 +45,5 @@ function hide() {
     loadMore.innerText = `+${projects.length - 3} more`;
     isShowAll = false;
 }
+
+console.log("Project.js");

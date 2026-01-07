@@ -2,85 +2,49 @@
   {
     "name": "FormSync",
     "desc": "Full-stack form management platform with API keys, token authentication, rate limiting, and a secure dashboard.",
-    "link": "",
+    "link": "https://formsync.netlify.app",
     "src": "assets/images/form-sync.png"
+  },
+  {
+    "name": "Attendance System",
+    "desc": "Digital attendance system for students and teachers with CSV/PDF export.",
+    "link": "https://github.com/zunaiddev/attendix-backend",
+    "src": "assets/images/attendix.png"
   },
   {
     "name": "Tasks App",
     "desc": "CMD task management application build using Hibernate",
-    "link": "",
+    "link": "https://github.com/zunaiddev/Tasks_App",
     "src": "assets/images/tasks-app.png"
   },
   {
     "name": "GUI App",
     "desc": "A Graphical User Interface Registration and Login App",
-    "link": "#",
+    "link": "https://github.com/zunaiddev/Java_GUI",
     "src": "assets/images/login-form.png"
-  },
-  {
-    "name": "Login & Register System (Desktop App)",
-    "desc": "Java Swing desktop app for user authentication with MySQL integration via JDBC.",
-    "link": "#",
-    "src": null
   },
   {
     "name": "Library Management API",
     "desc": "Spring Boot API to manage books, users, and borrowing records with CRUD operations.",
-    "link": "#",
-    "src": null
-  },
-  {
-    "name": "Tic Tac Toe Game",
-    "desc": "Browser-based two-player Tic Tac Toe with win/draw detection using JavaScript.",
-    "link": "#",
-    "src": null
-  },
-  {
-    "name": "Currency Converter",
-    "desc": "Web app for converting currencies in real-time using JavaScript.",
-    "link": "#",
-    "src": null
-  },
-  {
-    "name": "Stone Paper Scissors",
-    "desc": "Interactive game against computer with score tracking in JavaScript.",
-    "link": "#",
-    "src": null
-  },
-  {
-    "name": "Portfolio Website",
-    "desc": "Personal portfolio showcasing skills, projects, and contact details with responsive design.",
-    "link": "#",
-    "src": null
-  },
-  {
-    "name": "Attendance Tracker",
-    "desc": "Digital attendance system for students and teachers with CSV/PDF export.",
-    "link": "#",
-    "src": null
+    "link": "https://github.com/zunaiddev/Spring/tree/main/book-api",
+    "src": "assets/images/bookApi.png"
   },
   {
     "name": "Weather App",
     "desc": "React app displaying live weather updates using OpenWeather API.",
-    "link": "#",
-    "src": null
+    "link": "https://github.com/zunaiddev/Java-Script",
+    "src": "assets/images/weather.png"
   },
   {
-    "name": "Notes App",
-    "desc": "Simple CRUD-based notes manager built with React and localStorage.",
-    "link": "#",
-    "src": null
+    "name": "Tic Tac Toe Game",
+    "desc": "Browser-based two-player Tic Tac Toe with win/draw detection using JavaScript.",
+    "link": "https://github.com/zunaiddev/Tic-Tac-toe",
+    "src": "assets/images/tic-tac-toe.png"
   },
   {
-    "name": "E-Commerce Demo",
-    "desc": "Basic shopping cart system with product listing, cart, and checkout flow.",
-    "link": "#",
-    "src": null
-  },
-  {
-    "name": "Chat Application",
-    "desc": "Real-time chat app built with Java and WebSocket for instant messaging.",
-    "link": "#",
-    "src": null
+    "name": "Currency Converter",
+    "desc": "Web app for converting currencies in real-time using JavaScript.",
+    "link": "assets/images/currency-converter.png",
+    "src": "assets/images/currency-converter.png"
   }
 ]

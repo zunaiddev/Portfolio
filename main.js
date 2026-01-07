@@ -1,5 +1,5 @@
-const KEY = "P5ngK3FkXAazZUCXiLHJtmVUCg0htURw";
-const URL = "https://formsync.koyeb.app/api/public/submit";
+const KEY = "vCMtX5Svm10EjMQ6XdX2MIKBT8j01BH5zw";
+const URL = "https://selfish-gillan-api-v9-c9aa1fd9.koyeb.app/api/public/submit";
 
 document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver(
