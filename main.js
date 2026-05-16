@@ -1,4 +1,4 @@
-const KEY = "vCMtX5Svm10EjMQ6XdX2MIKBT8j01BH5zw";
+const KEY = "5De3enuzpuQrylPWKbq1KZR3buoeBDTEQ";
 const URL = "https://selfish-gillan-api-v9-c9aa1fd9.koyeb.app/api/public/submit";
 
 document.addEventListener("DOMContentLoaded", function () {
