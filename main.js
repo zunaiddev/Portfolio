@@ -22,12 +22,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const body = document.querySelector("body");
 const form = document.querySelector("#form");
+const header = document.querySelector("#header");
 const name = form.querySelector("#name");
 const email = form.querySelector("#email");
 const subject = form.querySelector("#subject");
 const message = form.querySelector("#message");
 const wordCount = form.querySelector(".word-count");
 const button = document.getElementById("button");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 180) {
+        header.classList.add("glass-effect");
+    } else {
+        header.classList.remove("glass-effect");
+    }
+});
 
 message.addEventListener("input", function (e) {
     wordCount.innerText = e.target.value.length + " | 150";
