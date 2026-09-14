@@ -142,9 +142,8 @@ body {
 
 #sidebar .card {
     width: 100%;
-    height: 100%;
+    height: 644px;
     max-width: 344px;
-    max-height: 640px;
     display: flex;
     margin: 5rem 3rem 0 0;
     flex-direction: column;
@@ -229,7 +228,6 @@ body {
     display: flex;
     flex: 2.5;
     flex-direction: column;
-    padding: 8rem 8rem 8rem 8rem;
     gap: 5vh;
 }
 
@@ -936,10 +934,10 @@ body {
         flex-basis: 84px;
     }
 
-    #sidebar .card {
-        width: 60%;
-        height: 80%;
-    }
+    /*#sidebar .card {*/
+    /*    width: 60%;*/
+    /*    height: 80%;*/
+    /*}*/
 
     #sidebar .image {
         width: 50%;

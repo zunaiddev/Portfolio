@@ -30,6 +30,8 @@ const message = form.querySelector("#message");
 const wordCount = form.querySelector(".word-count");
 const button = document.getElementById("button");
 
+showToast("This is a toast rfrfgu uf rfyurf ruf rfryf rfyurfrf rfuyrf grf r f rhfbrf ryf ryf rf ruyf rf rfrf ryf    ");
+
 window.addEventListener("scroll", () => {
     if (window.scrollY > 180) {
         header.classList.add("glass-effect");
