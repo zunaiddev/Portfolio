@@ -863,26 +863,28 @@ body {
 
 .toaster {
     position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 25px;
+    right: 20px;
     z-index: 999;
 }
 
 .toaster .toast {
-    max-width: 300px;
+    max-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.3rem;
     text-align: center;
     color: var(--white);
-    background: #424242;
     font: normal 16px var(--roboto);
-    padding: 20px 15px;
-    border-radius: 10px;
-    transform: translateY(-130%);
-    transition: 900ms ease-out transform;
+    padding: 10px 10px;
+    transform: translateX(130%);
+    border: 1px solid rgb(124 124 124 / 0.75);
+    transition: 350ms ease-out transform;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    top: 0.5rem;
 }
 
 @keyframes rotation {

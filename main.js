@@ -268,17 +268,17 @@ function showToast(text = "This is a toast", icon = "info", duration = 3000) {
     let toast = document.createElement("div");
 
     toaster.setAttribute("class", "toaster");
-    toast.setAttribute("class", "toast");
+    toast.classList.add("toast", "glass-effect");
 
     toast.innerHTML = `<img src="/assets/images/${icon}Icon.svg" alt="Toast icon"/><span>${text}</span>`;
 
     toaster.appendChild(toast);
     body.appendChild(toaster);
 
-    setTimeout(() => toast.style.transform = "translateY(0%)", 100);
+    setTimeout(() => toast.style.transform = "translateX(0%)", 100);
 
     setTimeout(async function () {
-        toast.style.transform = "translateY(-130%)";
+        toast.style.transform = "translateX(130%)";
         await new Promise(resolve => setTimeout(resolve, 900));
         body.removeChild(toaster);
     }, duration);
