@@ -1,3 +1,98 @@
+const $sidebar = document.querySelector('#sidebar');
+const $content = document.querySelector('#content');
+
+fetch("assets/other/websited-data.json")
+    .then(res => res.json())
+    .then(data => {
+        setPersonalData(data.personal);
+        setAchievementsData(data.achievements);
+        setExperiencesData(data.experiences);
+    });
+
+
+function setPersonalData({name, bio, role, desc}){
+    document.querySelector("#personal-name").textContent = name;
+    document.querySelector("#personal-bio").textContent = bio;
+    document.querySelector("#personal-desc").textContent = desc;
+    const roles = document.querySelectorAll("#personal-role h1");
+
+    const [role1, role2] = role.split(" ");
+
+    roles[0] = role1;
+    roles[1] = role2;
+}
+
+function setAchievementsData({experience, projects, technologies}){
+    document.querySelector("#achievement-experience").innerHTML =`+${experience}`;
+    document.querySelector("#achievement-projects").innerHTML = `+${projects}`;
+    document.querySelector("#achievement-technologies").innerHTML = `+${technologies}`;
+}
+
+function setExperiencesData(experiences){
+    const experienceContainer = document.querySelector("#experiences-container");
+
+    experiences.forEach(experience => {
+        experienceContainer.append(getExperienceCard(experience));
+    });
+}
+
+function getExperienceCard(experience) {
+    // 1. Root card container
+    const card = document.createElement('div');
+    card.className = 'experience-card';
+
+    // 2. Image container
+    const imageContainer = document.createElement('div');
+    imageContainer.className = 'image';
+
+    const img = document.createElement('img');
+    img.src = experience.image;
+    img.alt = experience.company;
+    img.loading = 'lazy';
+    imageContainer.appendChild(img);
+
+    // 3. Info container
+    const info = document.createElement('div');
+    info.className = 'info';
+
+    // Top section (Role & Duration)
+    const experienceTop = document.createElement('div');
+    experienceTop.className = 'experience-top';
+
+    const role = document.createElement('h1');
+    role.textContent = experience.role;
+
+    const duration = document.createElement('p');
+    duration.className = 'duration';
+
+    const time = document.createElement('time');
+    if (experience.datetime) {
+        time.setAttribute('datetime', experience.datetime);
+    }
+    time.textContent = experience.duration;
+    duration.appendChild(time);
+
+    experienceTop.append(role, duration);
+
+    // Company name
+    const company = document.createElement('p');
+    company.className = 'company';
+    company.textContent = experience.company;
+
+    // Description
+    const desc = document.createElement('p');
+    desc.className = 'desc';
+    desc.textContent = experience.description;
+
+    // Assemble info section
+    info.append(experienceTop, company, desc);
+
+    // Assemble and return the complete card
+    card.append(imageContainer, info);
+
+    return card;
+}
+
 const KEY = "5De3enuzpuQrylPWKbq1KZR3buoeBDTEQ";
 const URL = "https://selfish-gillan-api-v9-c9aa1fd9.koyeb.app/api/public/submit";
 
@@ -16,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document
         .querySelectorAll(".animated-component")
         .forEach(el => observer.observe(el));
-    
+
     setYear();
 });
 

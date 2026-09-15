@@ -1,0 +1,141 @@
+{
+  "personal": {
+    "name": "Zunaid",
+    "role": "Software Developer",
+    "bio": "Software Engineer specializing in building responsive and scalable websites.",
+    "desc": "I’m a Software Developer who turns ideas into clean, scalable, and reliable digital experiences. I enjoy solving complex problems and building things that just work."
+  },
+  "achievements": {
+    "experience": 9,
+    "projects": 20,
+    "technologies": 85
+  },
+  "experiences": [
+    {
+      "role": "React Developer Intern",
+      "company": "Wyreflow Technologies",
+      "duration": "May 2024 - Aug 2024",
+      "image": "assets/images/wyreflow.png",
+      "description": "Contributed to building responsive web interfaces using React.js and Tailwind CSS, integrated RESTful APIs, and supported backend services with Node.js and MongoDB."
+    },
+    {
+      "role": "Java Developer Intern",
+      "company": "Codesoft",
+      "duration": "Jul 2024 - Aug 2024",
+      "image": "assets/images/codesoft.png",
+      "description": "Developed Java desktop applications including a dynamic Currency Converter and ATM banking system using Core Java, OOP principles, and robust exception handling."
+    },
+    {
+      "role": "Web Development Intern",
+      "company": "Octanet Service Pvt Ltd",
+      "duration": "Nov 2024 - Dec 2024",
+      "image": "assets/images/octanet.svg",
+      "description": "Designed and developed responsive web interfaces using HTML5, CSS3, and JavaScript, focusing on performance optimization, clean layouts, and cross-browser support."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Java",
+      "category": "Language",
+      "image": "assets/images/java.svg"
+    },
+    {
+      "name": "Js",
+      "category": "Language",
+      "image": "assets/images/javascript.svg"
+    },
+    {
+      "name": "C++",
+      "category": "Language",
+      "image": "assets/images/cpp.svg"
+    },
+    {
+      "name": "Python",
+      "category": "Language",
+      "image": "assets/images/python.svg"
+    },
+    {
+      "name": "Kotlin",
+      "category": "Language",
+      "image": "assets/images/kotlin.svg"
+    },
+    {
+      "name": "Html",
+      "category": "Language",
+      "image": "assets/images/html.svg"
+    },
+    {
+      "name": "Css",
+      "category": "Language",
+      "image": "assets/images/css.svg"
+    },
+    {
+      "name": "React",
+      "category": "Library",
+      "image": "assets/images/react.svg"
+    },
+    {
+      "name": "Bootstrap",
+      "category": "Library",
+      "image": "assets/images/bootstrap.svg"
+    },
+    {
+      "name": "Tailwind",
+      "category": "Library",
+      "image": "assets/images/tailwind-css.svg"
+    },
+    {
+      "name": "Spring",
+      "category": "Framework",
+      "image": "assets/images/spring-boot.svg"
+    },
+    {
+      "name": "Postman",
+      "category": "Tool",
+      "image": "assets/images/postman.svg"
+    },
+    {
+      "name": "Git",
+      "category": "Version Control",
+      "image": "assets/images/github.svg"
+    },
+    {
+      "name": "Aws",
+      "category": "Cloud",
+      "image": "assets/images/aws.svg"
+    },
+    {
+      "name": "Mongodb",
+      "category": "Database",
+      "image": "assets/images/mongodb.svg"
+    },
+    {
+      "name": "Mysql",
+      "category": "Database",
+      "image": "assets/images/mysql.svg"
+    }
+  ],
+  "thoughts": [
+    {
+      "title": "About Problem-Solving",
+      "date": "Jan 29, 2025",
+      "datetime": "2025-01-28",
+      "icon": "assets/images/arrow.svg",
+      "description": "I see programming as a creative process where every challenge is an opportunity to craft a solution. For me, solving problems is not just about fixing issues but building something that is scalable, efficient, and impactful. I strive to write clean, reusable code that simplifies complexity"
+    },
+    {
+      "title": "On Continuous Learning",
+      "date": "Jan 27, 2025",
+      "datetime": "2025-01-28",
+      "icon": "assets/images/arrow.svg",
+      "description": "Technology evolves rapidly, and I believe in staying curious and adapting to change. Whether it's learning new frameworks, understanding complex systems, or diving into new programming languages, I see every learning opportunity as a step toward growth. My journey is fueled by the desire to keep improving and staying ahead of the curve."
+    },
+    {
+      "title": "Collaboration and Innovation",
+      "date": "Jan 28, 2025",
+      "datetime": "2025-01-28",
+      "icon": "assets/images/arrow.svg",
+      "description": "I value the power of collaboration in creating innovative solutions. Working with others allows me to see problems from different perspectives and develop more creative ideas. My ultimate goal is to contribute to projects that not only meet business goals but also make life easier for users."
+    }
+  ]
+}
